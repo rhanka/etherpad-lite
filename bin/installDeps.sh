@@ -53,6 +53,9 @@ if [ ! $NODE_V_MINOR = "v0.10" ] && [ ! $NODE_V_MINOR = "v0.11" ] && [ ! $NODE_V
   exit 1
 fi
 
+#Configure proxy
+npm config `echo $http_proxy | sed 's/^$/delete proxy/;s/\(\S\S*\)/set proxy \1/'`
+
 #Get the name of the settings file
 settings="settings.json"
 a='';
